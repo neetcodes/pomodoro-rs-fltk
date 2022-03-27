@@ -1,3 +1,4 @@
+#![windows_subsystem = "windows"]
 use std::sync::{atomic::{AtomicU64, AtomicU8, Ordering}, Arc, Mutex};
 use fltk::{app, button::Button, frame::Frame, group::{Pack, PackType}, prelude::*, window::Window};
 use fltk_theme::{WidgetTheme, ThemeType};
@@ -54,6 +55,7 @@ fn main() {
     let but_break = Button::default().with_size(60, 30).with_label("Break");
     pack_buttons.end();
     wind.set_xclass("pomodoro-rs-fltk");
+    wind.make_modal(true);
     pack.end();
     //wind.resizable(&wind);
     wind.end();
